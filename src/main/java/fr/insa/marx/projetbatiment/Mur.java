@@ -1,0 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package fr.insa.marx.projetbatiment;
+
+/**
+ *
+ * @author emarx02
+ */
+public class Mur {
+    
+    private int id, rev1, rev2, rev3, portes, fenetres;
+    private double separation, hauteur;
+    private Coin pt1, pt2;
+
+    public Mur(Coin pt1, Coin pt2) {
+        this.pt1 = pt1;
+        this.pt2 = pt2;
+    }
+    
+    public double Longueur(){
+        double longueur;
+        longueur = Math.sqrt((this.pt1.getX()-this.pt2.getX())*(this.pt1.getX()-this.pt2.getX()) + (this.pt1.getY()-this.pt2.getY())*(this.pt1.getY()-this.pt2.getY()));
+    return longueur;
+    }
+    
+    public double Surface(){
+        double surface;
+        surface = this.Longueur()*this.pt1.getEtage().getHauteur();
+    return surface;
+    }
+}
