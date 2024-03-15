@@ -11,13 +11,14 @@ package fr.insa.marx.projetbatiment;
 public class Coin {
     
     private int id;
-    private double x;
-    private double y;
+    private double x, y;
+    private Etage Etage;
 
-    public Coin(int id, double x, double y) {
+    public Coin(int id, double x, double y, Etage Etage) {
         this.id = id;
         this.x = x;
         this.y = y;
+        this.Etage = Etage;
     }
 
     @Override
@@ -47,6 +48,14 @@ public class Coin {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public Etage getEtage() {
+        return Etage;
+    }
+
+    public void setEtage(Etage Etage) {
+        this.Etage = Etage;
     }
     
     
