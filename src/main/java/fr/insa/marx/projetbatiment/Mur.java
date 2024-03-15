@@ -46,7 +46,11 @@ public class Mur {
     
     public double SurfaceHaut(){
         double surface;
+        if (this.separation == 0) {
+            surface = 0;
+        } else {
         surface = this.Longueur() * (this.pt1.getEtage().getHauteur() - this.separation);
+        }
     return surface;
     }
 }
