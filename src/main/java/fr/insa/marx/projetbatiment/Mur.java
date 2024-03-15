@@ -18,6 +18,14 @@ public class Mur {
         this.pt1 = pt1;
         this.pt2 = pt2;
         this.separation = 0;
+        this.fenetres = 0;
+        this.portes = 0;
+    }
+
+    public Mur(Coin pt1, Coin pt2, double separation) {
+        this.separation = separation;
+        this.pt1 = pt1;
+        this.pt2 = pt2;
     }
     
     public double Longueur(){
@@ -31,7 +39,7 @@ public class Mur {
         if (this.separation == 0) {
             surface = this.Longueur() * this.pt1.getEtage().getHauteur();
         } else {
-            surface = this.separation;
+            surface = this.Longueur() * this.separation;
         }
     return surface;
     }

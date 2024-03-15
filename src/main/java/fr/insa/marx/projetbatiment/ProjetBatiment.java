@@ -14,7 +14,7 @@ public class ProjetBatiment {
         Etage e1 = new Etage(0,2.5);
         Coin c1 = new Coin(1,0,1,e1);
         Coin c2 = new Coin(2,1,0,e1);
-        Mur m1 = new Mur(c1,c2);
+        Mur m1 = new Mur(c1,c2,1);
         System.out.println(m1.Surface());
         
 
