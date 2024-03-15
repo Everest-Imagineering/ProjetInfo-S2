@@ -11,12 +11,13 @@ package fr.insa.marx.projetbatiment;
 public class Mur {
     
     private int id, rev1, rev2, rev3, portes, fenetres;
-    private double separation, hauteur;
+    private double separation;
     private Coin pt1, pt2;
 
     public Mur(Coin pt1, Coin pt2) {
         this.pt1 = pt1;
         this.pt2 = pt2;
+        this.separation = 0;
     }
     
     public double Longueur(){
@@ -27,7 +28,17 @@ public class Mur {
     
     public double Surface(){
         double surface;
-        surface = this.Longueur()*this.pt1.getEtage().getHauteur();
+        if (this.separation == 0) {
+            surface = this.Longueur() * this.pt1.getEtage().getHauteur();
+        } else {
+            surface = this.separation;
+        }
+    return surface;
+    }
+    
+    public double SurfaceHaut(){
+        double surface;
+        surface = this.Longueur() * (this.pt1.getEtage().getHauteur() - this.separation);
     return surface;
     }
 }
