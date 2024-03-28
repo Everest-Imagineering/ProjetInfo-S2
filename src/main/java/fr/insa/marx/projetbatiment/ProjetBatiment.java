@@ -11,12 +11,31 @@ package fr.insa.marx.projetbatiment;
 public class ProjetBatiment {
 
     public static void main(String[] args) {
-        Etage e1 = new Etage(0,2.5);
-        Coin c1 = new Coin(1,0,1,e1);
-        Coin c2 = new Coin(2,1,0,e1);
-        Mur m1 = new Mur(c1,c2,1);
-        System.out.println(m1.Surface());
         
+        Pièce salon = new Pièce() ;
+        Etage rdc = new Etage(1,2);
+        Coin c1 = new Coin (1,1,1,rdc);
+        Coin c2 = new Coin (2,3,3,rdc);
+        Coin c3 = new Coin (3,5,3,rdc);
+        Coin c4 = new Coin (4,5,2,rdc);
+        Coin c5 = new Coin (1,6,3,rdc);
+        Coin c6 = new Coin (2,7,3,rdc);
+        Coin c7 = new Coin (3,7,5,rdc);
+        Coin c8 = new Coin (4,5,5,rdc);
+        Coin c9 = new Coin (4,1,3,rdc);
+        
+        salon.addCoin(c1);
+        salon.addCoin(c2);
+        salon.addCoin(c3);
+        salon.addCoin(c4);
+        salon.addCoin(c5);
+        salon.addCoin(c6);
+        salon.addCoin(c7);
+        salon.addCoin(c8);
+        salon.addCoin(c9);
+        
+        System.out.println(salon.Surface());
+        //System.out.println(salon.toString());
 
     }
 }
