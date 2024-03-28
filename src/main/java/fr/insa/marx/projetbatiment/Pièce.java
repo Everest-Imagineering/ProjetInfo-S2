@@ -20,7 +20,7 @@ public class Pièce {
     public double Surface() {
         double surface = 0 ;
         int i ;
-        for (i=1 ; i<=coins.size() ; i++) {
+        for (i=0 ; i<coins.size() ; i++) {
             
          
             
