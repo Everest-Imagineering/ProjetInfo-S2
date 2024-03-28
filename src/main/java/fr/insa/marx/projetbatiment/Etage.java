@@ -32,6 +32,11 @@ public class Etage {
     public void setHauteur(double hauteur) {
         this.hauteur = hauteur;
     }
+
+    @Override
+    public String toString() {
+        return "Etage{" + "id=" + id + ", hauteur=" + hauteur + '}';
+    }
     
     
 }
