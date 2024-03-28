@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.insa.marx.projetbatiment;
-
+import java.util.*;
 /**
  *
  * @author emarx02
@@ -11,12 +11,17 @@ package fr.insa.marx.projetbatiment;
 public class Etage {
     private int id;
     private double hauteur;
+    private ArrayList<Pièce> pieces;
 
     public Etage(int id, double hauteur) {
         this.id = id;
         this.hauteur = hauteur;
     }
 
+    public void Ajouter(Piece p) {
+        this.pieces.add(p);
+    }
+    
     public int getId() {
         return id;
     }
