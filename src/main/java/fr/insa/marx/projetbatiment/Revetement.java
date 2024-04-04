@@ -17,7 +17,7 @@ public class Revetement {
     private double prixUnitaire;
     private String nom;
         
-    public {
+    public void Initialisation() {
 	try {
             // Création d'un fileReader pour lire le fichier
             FileReader fileReader = new FileReader("/path/to/the/file");
