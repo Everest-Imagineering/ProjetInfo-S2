@@ -18,7 +18,7 @@ public class Etage {
         this.hauteur = hauteur;
     }
 
-    public void Ajouter(Piece p) {
+    public void Ajouter(Pièce p) {
         this.pieces.add(p);
     }
     
