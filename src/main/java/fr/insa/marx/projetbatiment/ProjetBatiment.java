@@ -12,7 +12,7 @@ public class ProjetBatiment {
 
     public static void main(String[] args) {
         
-        Pièce salon = new Pièce() ;
+        Pièce salon = new Pièce(null) ;
         Etage rdc = new Etage(1,2);
         Coin c1 = new Coin (1,1,1,rdc);
         Coin c2 = new Coin (2,3,3,rdc);
@@ -34,8 +34,10 @@ public class ProjetBatiment {
         salon.addCoin(c8);
         salon.addCoin(c9);
         
-        System.out.println(salon.Surface());
+        System.out.println(salon.surface());
         //System.out.println(salon.toString());
+        
+       
 
     }
 }

@@ -9,13 +9,17 @@ import java.util.ArrayList ;
 
 public class Pièce {
     private ArrayList<Coin> coins ;
+    private Revetement sol ;
 
-    public Pièce() {
+    public Pièce(Revetement sol) {
         this.coins = new ArrayList() ;
+        this.sol = sol;
     }
 
    
-
+    public double prix() {        
+        return this.sol.getPrixUnitaire()*surface();
+    }
     
     
     
@@ -23,7 +27,7 @@ public class Pièce {
     public void addCoin(Coin a) {
     this.coins.add(a) ;
     }
-    public double Surface() {
+    public double surface() {
         double surface = 0 ;
         int i ;
         
