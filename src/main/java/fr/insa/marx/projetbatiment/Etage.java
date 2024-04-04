@@ -22,7 +22,6 @@ public class Etage {
         this.pieces.add(p);
     }
     
-        
     
     public int getId() {
         return id;
