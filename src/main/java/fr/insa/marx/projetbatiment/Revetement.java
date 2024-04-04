@@ -17,57 +17,8 @@ public class Revetement {
     private double prixUnitaire;
     private String nom;
         
-    public void Initialisation() {
-	try {
-            // Création d'un fileReader pour lire le fichier
-            FileReader fileReader = new FileReader("/path/to/the/file");
-            
-            // Création d'un bufferedReader qui utilise le fileReader
-            BufferedReader reader = new BufferedReader(fileReader);
-			
-            // une fonction à essayer pouvant générer une erreur
-            String line = reader.readLine();
-            int separateurs[] = new int[5];
-            int compt = 0;
-            int tempId = 0;
-            double tempPrix = 0;
-            char tempChar[] = new char[20];
-            while (line != null) {
-                // affichage de la ligne
-                System.out.println(line);
-                
-                for (int i=0; i<line.length(); i++) {
-                    if (";".equals(line.charAt(i))) { //on crée un tabeau avec les emplacements des ";"
-                        separateurs[compt]=i;
-                        compt++;
-                    }
-                }
-                line.getChars(separateurs[0], separateurs[1], tempChar, 0);
-                this.setNom(Arrays.toString(tempChar));
-                this.setPourMur("1".equals(line.charAt(separateurs[1]+1)));
-                this.setPourSol("1".equals(line.charAt(separateurs[2]+1)));
-                this.setPourPlafond("1".equals(line.charAt(separateurs[3]+1)));
-                
-                for (int i=0; i<line.length(); i++){
-                    if (!(";".equals(line.charAt(i)))) {
-                        if (i < separateurs[0]) {
-                            tempId += line.charAt(i) * Math.pow(10, separateurs[0]-i);
-                        }
-                        if (i > separateurs[4]) {
-                            tempPrix +=line.charAt(i) * Math.pow(10, separateurs[4]-(i+2));
-                        }
-                    }
-                }
-                this.setIdRev(tempId);
-                this.setPrixUnitaire(tempPrix);
-
-                // lecture de la prochaine ligne
-                line = reader.readLine();
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public Revetement(){
+        this.pourMur = false;
     }
     
     public boolean isPourPlafond() {
