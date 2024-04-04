@@ -13,7 +13,7 @@ public class Mur {
     private int id, portes, fenetres;
     private double separation;
     private Coin pt1, pt2;
-    private String rev1, rev2, rev3;
+    private Revetement rev1, rev2, rev3;
 
     public Mur(Coin pt1, Coin pt2) {
         this.pt1 = pt1;
@@ -21,18 +21,18 @@ public class Mur {
         this.separation = 0;
         this.fenetres = 0;
         this.portes = 0;
-        this.rev1 = "Peinture";
-        this.rev2 = "Peinture";
-        this.rev2 = "Peinture";
+        this.rev1 = null;
+        this.rev2 = null;
+        this.rev2 = null;
     }
 
-    public Mur(Coin pt1, Coin pt2, double separation) {
+    public Mur(Coin pt1, Coin pt2, double separation, Revetement rev1, Revetement rev2, Revetement rev3) {
         this.separation = separation;
         this.pt1 = pt1;
         this.pt2 = pt2;
-        this.rev1 = "Peinture";
-        this.rev2 = "Peinture";
-        this.rev2 = "Peinture";
+        this.rev1 = rev1;
+        this.rev2 = rev2;
+        this.rev2 = rev3;
     }
     
     public double Longueur(){
@@ -60,6 +60,17 @@ public class Mur {
         }
     return surface;
     }
+    
+    public double prix() {
+        
+    double s = this.Surface();
+    double sh = this.SurfaceHaut();
+    
+    return (s+sh)*this.rev3.getPrixUnitaire()+s*this.rev1.getPrixUnitaire()+sh*this.rev2.getPrixUnitaire() ;
+    }
+    
+    
+    
     
     public int getId() {
         return id;
@@ -109,27 +120,27 @@ public class Mur {
         this.pt2 = pt2;
     }
 
-    public String getRev1() {
+    public Revetement getRev1() {
         return rev1;
     }
 
-    public void setRev1(String rev1) {
+    public void setRev1(Revetement rev1) {
         this.rev1 = rev1;
     }
 
-    public String getRev2() {
+    public Revetement getRev2() {
         return rev2;
     }
 
-    public void setRev2(String rev2) {
+    public void setRev2(Revetement rev2) {
         this.rev2 = rev2;
     }
 
-    public String getRev3() {
+    public Revetement getRev3() {
         return rev3;
     }
 
-    public void setRev3(String rev3) {
+    public void setRev3(Revetement rev3) {
         this.rev3 = rev3;
     }
     
