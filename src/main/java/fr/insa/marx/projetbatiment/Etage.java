@@ -22,6 +22,8 @@ public class Etage {
         this.pieces.add(p);
     }
     
+        
+    
     public int getId() {
         return id;
     }
@@ -40,7 +42,7 @@ public class Etage {
 
     @Override
     public String toString() {
-        return "Etage{" + "id=" + id + ", hauteur=" + hauteur + '}';
+        return "Etage{" + "id=" + id + ", hauteur=" + hauteur + ", pieces=" + pieces + '}';
     }
     
     
