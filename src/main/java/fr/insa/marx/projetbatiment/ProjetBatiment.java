@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.*;
+
 
 /**
  *
@@ -40,27 +42,33 @@ public class ProjetBatiment {
         salon.addCoin(c8);
         salon.addCoin(c9);
         
+        LectureRevetements();
         
+        //system.out.println(Revetements.get(1).getNom());
         
-       
-
     }
     
     public void LectureRevetements() {
 	try {
             // Création d'un fileReader pour lire le fichier
-            FileReader fileReader = new FileReader("/path/to/the/file");
+            FileReader fileReader = new FileReader("revetements.txt");
             
             // Création d'un bufferedReader qui utilise le fileReader
             BufferedReader reader = new BufferedReader(fileReader);
 			
             // une fonction à essayer pouvant générer une erreur
             String line = reader.readLine();
+            
             int separateurs[] = new int[5];
             int compt = 0;
             int tempId = 0;
             double tempPrix = 0;
+            boolean tempPourSol, tempPourMur,tempPourPlafond;
+            String tempNom;
             char tempChar[] = new char[20];
+            
+            ArrayList<Revetement> Revetements = new ArrayList<>();
+            
             while (line != null) {
                 // affichage de la ligne
                 System.out.println(line);
@@ -72,10 +80,10 @@ public class ProjetBatiment {
                     }
                 }
                 line.getChars(separateurs[0], separateurs[1], tempChar, 0);
-                this.setNom(Arrays.toString(tempChar));
-                this.setPourMur("1".equals(line.charAt(separateurs[1]+1)));
-                this.setPourSol("1".equals(line.charAt(separateurs[2]+1)));
-                this.setPourPlafond("1".equals(line.charAt(separateurs[3]+1)));
+                tempNom = Arrays.toString(tempChar);
+                tempPourMur = ("1".equals(line.charAt(separateurs[1]+1)));
+                tempPourSol = ("1".equals(line.charAt(separateurs[2]+1)));
+                tempPourPlafond = ("1".equals(line.charAt(separateurs[3]+1)));
                 
                 for (int i=0; i<line.length(); i++){
                     if (!(";".equals(line.charAt(i)))) {
@@ -87,8 +95,7 @@ public class ProjetBatiment {
                         }
                     }
                 }
-                this.setIdRev(tempId);
-                this.setPrixUnitaire(tempPrix);
+                Revetements.add(new Revetement(tempId, tempNom, tempPourPlafond, tempPourSol, tempPourMur, tempPrix));
 
                 // lecture de la prochaine ligne
                 line = reader.readLine();

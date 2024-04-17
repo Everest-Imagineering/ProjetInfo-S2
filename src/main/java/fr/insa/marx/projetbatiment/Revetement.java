@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.insa.marx.projetbatiment;
-import java.io.* ; 
-import java.util.Arrays;
+
 
 
 /**
@@ -12,14 +11,22 @@ import java.util.Arrays;
  * @author emarx02
  */
 public class Revetement {
-    private boolean pourPlafond, pourSol, pourMur;
     private int idRev;
-    private double prixUnitaire;
     private String nom;
-        
-    public Revetement(){
-        this.pourMur = false;
+    private boolean pourPlafond, pourSol, pourMur;
+    private double prixUnitaire;
+
+    public Revetement(int idRev, String nom, boolean pourPlafond, boolean pourSol, boolean pourMur, double prixUnitaire) {
+        this.idRev = idRev;
+        this.nom = nom;
+        this.pourPlafond = pourPlafond;
+        this.pourSol = pourSol;
+        this.pourMur = pourMur;
+        this.prixUnitaire = prixUnitaire;
     }
+
+    
+    
     
     public boolean isPourPlafond() {
         return pourPlafond;
