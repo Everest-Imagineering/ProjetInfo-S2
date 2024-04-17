@@ -42,8 +42,8 @@ public class ProjetBatiment {
         salon.addCoin(c8);
         salon.addCoin(c9);
         
-        ArrayList<Revetement> Revetements = new ArrayList<>();
-        Revetements.add(LectureRevetements(Revetements, Revetements.size()));
+        //ArrayList<Revetement> Revetements = new ArrayList<>();
+        //Revetements.add(LectureRevetements(Revetements, Revetements.size()));
         
         //system.out.println(Revetements.get(1).getNom());
         
@@ -67,6 +67,7 @@ public class ProjetBatiment {
             boolean tempPourSol, tempPourMur,tempPourPlafond;
             String tempNom;
             char tempChar[] = new char[20];
+            int faireUnNouveau = 0;
                         
             while (line != null) {
                 // affichage de la ligne
@@ -94,7 +95,14 @@ public class ProjetBatiment {
                         }
                     }
                 }
-                if (!(Revetements.get(indice).getIdRev()==tempId)) {
+                for (int i =0; i<indice; i++){
+                    if (!(Revetements.get(i).getIdRev()==tempId)) {
+                        faireUnNouveau = 1;
+                    } else {
+                        faireUnNouveau = 0;
+                    }
+                }
+                if (faireUnNouveau ==1) {
                     return new Revetement(tempId, tempNom, tempPourPlafond, tempPourSol, tempPourMur, tempPrix);
                 }
                 // lecture de la prochaine ligne
