@@ -42,13 +42,14 @@ public class ProjetBatiment {
         salon.addCoin(c8);
         salon.addCoin(c9);
         
-        LectureRevetements();
+        ArrayList<Revetement> Revetements = new ArrayList<>();
+        Revetements.add(LectureRevetements(Revetements, Revetements.size()));
         
         //system.out.println(Revetements.get(1).getNom());
         
     }
     
-    public void LectureRevetements() {
+    public Revetement LectureRevetements(ArrayList<Revetement> Revetements, int indice) {
 	try {
             // Création d'un fileReader pour lire le fichier
             FileReader fileReader = new FileReader("revetements.txt");
@@ -66,9 +67,7 @@ public class ProjetBatiment {
             boolean tempPourSol, tempPourMur,tempPourPlafond;
             String tempNom;
             char tempChar[] = new char[20];
-            
-            ArrayList<Revetement> Revetements = new ArrayList<>();
-            
+                        
             while (line != null) {
                 // affichage de la ligne
                 System.out.println(line);
@@ -95,8 +94,9 @@ public class ProjetBatiment {
                         }
                     }
                 }
-                Revetements.add(new Revetement(tempId, tempNom, tempPourPlafond, tempPourSol, tempPourMur, tempPrix));
-
+                if (!(Revetements.get(indice).getIdRev()==tempId)) {
+                    return new Revetement(tempId, tempNom, tempPourPlafond, tempPourSol, tempPourMur, tempPrix);
+                }
                 // lecture de la prochaine ligne
                 line = reader.readLine();
             }
